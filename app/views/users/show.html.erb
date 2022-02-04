@@ -7,6 +7,8 @@
   <div id="hosting">
     <h2>Parties this user is hosting:</h2>
       <ul>
+        <p>Movie Title: <%= link_to "#{@movie.title}", "/users/#{@user.id}/movies/#{@movie.id}" %></p>
+        <p><%= image_tag @movie.poster_path.to_s, :size =>'220x220'%></p>
         <p>Date: <%= party.date.strftime('%m/%d/%Y') %></p>
         <p>Duration: <%= party.duration %></p>
         <p>Start Time: <%= party.start_time.strftime('%I:%M %p')%></p>
@@ -16,6 +18,8 @@
     <div id="invited">
     <h2>Parties this user is invited to:</h2>
       <ul>
+        <p>Movie Title: <%= link_to "#{@movie.title}", "/users/#{@user.id}/movies/#{@movie.id}" %></p>
+        <p><%= image_tag @movie.poster_path.to_s, :size =>'220x220' %></p>
         <p>Date: <%= party.date.strftime('%m/%d/%Y') %></p>
         <p>Duration: <%= party.duration %></p>
         <p>Start Time: <%= party.start_time.strftime('%I:%M %p')%></p>

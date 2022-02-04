@@ -7,12 +7,14 @@ class MovieDetail
                 :vote_average,
                 :cast,
                 :reviews,
-                :review_count
+                :review_count,
+                :poster_path
 
   def initialize(movie_details, movie_cast, movie_reviews)
     @id = movie_details[:id]
     @title = movie_details[:title]
     @runtime = (movie_details[:runtime].to_f / 60).round(2)
+    @poster_path = movie_details[:poster_path]
     @genres = all_genres(movie_details)
     @summary = movie_details[:overview]
     @vote_average = movie_details[:vote_average]

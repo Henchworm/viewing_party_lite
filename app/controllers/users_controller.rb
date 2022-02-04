@@ -15,6 +15,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user.partys.each do |party|
+      party.movie_id
+    @movie = MovieFacade.movie_details_id(party.movie_id)
+    end
   end
 
   def discover
