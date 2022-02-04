@@ -1,8 +1,8 @@
 <h1><%= @user.name %>'s Dashboard</h1>
+
 <%= button_to "Discover Movies", "/users/#{@user.id}/discover", method: :get %>
 
 <% @user.partys.each do |party| %>
-
   <% if party.host_id == @user.id %>
   <div id="hosting">
     <h2>Parties this user is hosting:</h2>
@@ -12,6 +12,10 @@
         <p>Date: <%= party.date.strftime('%m/%d/%Y') %></p>
         <p>Duration: <%= party.duration %></p>
         <p>Start Time: <%= party.start_time.strftime('%I:%M %p')%></p>
+        <h4>Users Invited: </h4>
+        <% party.users.each do |user| %>
+        <p>  <%= user.name %></p>
+        <%end  %>
       </ul>
       </div>
     <% else %>
@@ -20,9 +24,14 @@
       <ul>
         <p>Movie Title: <%= link_to "#{@movie.title}", "/users/#{@user.id}/movies/#{@movie.id}" %></p>
         <p><%= image_tag @movie.poster_path.to_s, :size =>'220x220' %></p>
+        <p>Host for viewing party: <%= @host.name %></p>
         <p>Date: <%= party.date.strftime('%m/%d/%Y') %></p>
         <p>Duration: <%= party.duration %></p>
         <p>Start Time: <%= party.start_time.strftime('%I:%M %p')%></p>
+        <h4>Users Invited: </h4>
+        <% party.users.each do |user| %>
+        <p>  <%= user.name %></p>
+        <%end  %>
       </ul>
     </div>
   <% end  %>

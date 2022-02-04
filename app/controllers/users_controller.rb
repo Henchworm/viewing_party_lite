@@ -18,6 +18,10 @@ class UsersController < ApplicationController
     @user.partys.each do |party|
       party.movie_id
     @movie = MovieFacade.movie_details_id(party.movie_id)
+
+    if party.host_id != nil
+      @host = User.find(party.host_id)
+    end
     end
   end
 
