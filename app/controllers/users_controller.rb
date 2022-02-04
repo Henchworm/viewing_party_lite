@@ -6,11 +6,9 @@ class UsersController < ApplicationController
 
     if user.save
       redirect_to "/users/#{user.id}"
-
       flash[:alert] = "Welcome #{user.name}! Your account has successfully been created!"
     else
       flash[:alert] = user.errors.full_messages.join('')
-
       redirect_to '/register'
     end
   end
@@ -20,7 +18,6 @@ class UsersController < ApplicationController
     @user.partys.each do |party|
       party.movie_id
     @movie = MovieFacade.movie_details_id(party.movie_id)
-
     if party.host_id != nil
       @host = User.find(party.host_id)
     end

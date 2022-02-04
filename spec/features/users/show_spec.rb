@@ -48,22 +48,5 @@ RSpec.describe 'the user show(dashboard) page' do
       expect(page).to have_content('Duration: 50')
       expect(page).to have_content('Start Time: 05:30 PM')
     end
-    save_and_open_page
-  end
-
-
-  xit 'shows who is the host of the viewing party', :vcr do
-    #need to add host
-  end
-
-  xit 'lists those invited to the viewing party', :vcr do
-    #need to add users
-    #add logic to view to not list host as those invited??
-  end
-
-  xit 'links to the movie show page from the movie_title of the viewing party', :vcr do
-    #need to test this, thinks its ok
-  end
-  xit 'shows an image for the movie of the viewing party', :vcr do
   end
 end
