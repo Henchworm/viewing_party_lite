@@ -6,6 +6,8 @@ class UsersController < ApplicationController
 
     if user.save
       redirect_to "/users/#{user.id}"
+
+      flash[:alert] = "Welcome #{user.name}! Your account has successfully been created!"
     else
       flash[:alert] = user.errors.full_messages.join('')
 
